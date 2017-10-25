@@ -1,3 +1,5 @@
+import java.util.ArrayList
+
 /*
 *
 * Filename: ProductCatalogue.java 
@@ -6,5 +8,6 @@
 */
 
 public class ProductCatalogue {
+	ArrayList catalogue = new ArrayList();
 	
 }
