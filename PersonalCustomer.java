@@ -6,5 +6,5 @@
 */
 
 public class PersonalCustomer {
-	
+	int creditCardNumber;
 }

@@ -9,4 +9,12 @@ public class OrderApplication {
 	public static main(string[] args) {
 		
 	}
+	
+	boolean createOrder(Order) {
+	
+	}
+	
+	boolean importCatalogue() {
+		
+	}
 }

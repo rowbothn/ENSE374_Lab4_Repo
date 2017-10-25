@@ -6,5 +6,5 @@
 */
 
 public class CorporateCustomer {
-	
+	string contactName; 
 }
