@@ -7,23 +7,18 @@
 
 public class OrderLine {
 	int quantity;
-	Product item = new Product();
-	double price;
+	Product product = new Product();
 	
-	OrderLine(Product product) {
-		price = product.getPrice();
-		quantity = 2;
-	}
-	
-	Product getProduct() {
-		return item;
+	OrderLine(Product item, int amount) {
+		product = item;
+		quantity = amount;
 	}
 	
 	int getQuantity() {
 		return quantity;
 	}
-	
+
 	double getPrice() {
-		return price;
+		return product.getPrice();
 	}
 }

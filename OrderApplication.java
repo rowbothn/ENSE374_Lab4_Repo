@@ -1,4 +1,5 @@
-import java.util.*
+import java.util.*;
+import java.io.*;
 /*
 *
 * Filename: OrderApplication.java 
@@ -7,58 +8,65 @@ import java.util.*
 */
 
 public class OrderApplication {
-	public ArrayList<Product> catalogue = new ArrayList<Product>();
+	ArrayList<Product> catalogue = new ArrayList<Product>();
 	
-	public static main(String[] args) {
-		System.out.println("Creating Personal Customer...");
-		PersonalCustomer personal_cust = new PersonalCustomer("Mr. Personal", "House", 3500, 123456789012);
-		System.out.println("Creating Corporate Customer...");
-		CorporateCustomer corp_cust = new CorporateCustomer("Mr.Buisness", "Office", "My Buisness Contact");
-
-		System.out.println("Generating Order...");
+	public static void main(String[] args) {
 		OrderApplication orderUI = new OrderApplication();
-		Order personal_order = new Order();
-		Order cust_order = new Order();
-
 		System.out.println("Importing Catalogue...");
-		orderUI.importCatalogue();
+		boolean check_for_input = orderUI.importCatalogue();
+		if(check_for_input == false)
+			System.out.println("\nCatalogue Import Failed!");
 
-		System.out.println("Processing a Personal Customer Order");
-		orderUI.createOrder(personal_order);
-		System.out.println("Processing a Corporate Customer Order");
-		orderUI.createOrder(cust_order);
+		System.out.println("Creating Personal Customer...");
+		PersonalCustomer personal_cust = new PersonalCustomer("Mr. Personal", "House", 3500, 123456789);
 
+		System.out.println("Creating Corporate Customer...");
+		CorporateCustomer corp_cust = new CorporateCustomer("Mr.Business", "Office", "My Buisness Contact");
+
+		System.out.println("Generating Customer Order...");
+		Order cust_order = new Order();
+		cust_order.addOrderLine(orderUI.catalogue.get(0), 1);
+		cust_order.addOrderLine(orderUI.catalogue.get(1), 1);
+		cust_order.addOrderLine(orderUI.catalogue.get(2), 1);
+
+		System.out.println("\nProcessing a Personal Customer Order");
+		orderUI.createOrder(cust_order, personal_cust);
+
+		System.out.println("Generating Customer Order...");
+		cust_order = new Order();
+		cust_order.addOrderLine(orderUI.catalogue.get(0), 1);
+		cust_order.addOrderLine(orderUI.catalogue.get(1), 1);
+		cust_order.addOrderLine(orderUI.catalogue.get(2), 1);
+
+		System.out.println("\nProcessing a Corporate Customer Order");
+		orderUI.createOrder(cust_order, corp_cust);
 	}
 	
-	boolean createOrder(Order purchase) {
-		boolean check_for_input = importCatalogue();
-		if(check_for_input == false) {
-			System.out.println("System failure! Catalogue not available.");
-			return false;
-		}
-
-		System.out.println("Your total cost is: " + purchase.calculatePrice());
-		System.out.println("Order Recieved: " + purchase.getDateRecieved());
-		return true;
+	void createOrder(Order purchase, Customer customer) {
+		System.out.println("Total Cost: $" + purchase.calculatePrice(customer.getDiscountRating()));
+		System.out.println("Date Recieved: " + purchase.getDateRecieved());
+		System.out.println("Order ID: " + purchase.getOrderID());
 	}
 	
 	boolean importCatalogue() {
 		FileReader file;
 
-		try
+		try {
 			file = new FileReader("ProductCatalogue.txt");
+		}
 		catch(IOException e) {
-			System.out.print("File Import Failed");
 			return false;
 		}
 
 		Scanner read_products = new Scanner(file);
 		
 		while(read_products.hasNextLine()) {
-			Product item = new Product(read_products.nextln(), read_products.nextDouble(), item_productID.nextInt());
+			String name = read_products.next();
+			double cost = read_products.nextDouble();
+			int id = read_products.nextInt();
+			Product item = new Product(name, cost, id);
 			catalogue.add(item);
 		}
 		return true;
 	}
-	
 }

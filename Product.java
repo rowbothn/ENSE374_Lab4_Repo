@@ -9,6 +9,12 @@ public class Product {
 	String name;
 	double price;
 	int productID;
+
+	Product() { 
+		name = " ";
+		price = 0;
+		productID = 0;
+	}
 	
 	Product(String item_name, double item_price, int item_productID) {
 		name = item_name;
@@ -24,8 +30,8 @@ public class Product {
 		price = item_price;
 	}
 	
-	void setProductID(int productID) {
-		productID = item_productID
+	void setProductID(int item_productID) {
+		productID = item_productID;
 	}
 	
 	String getName() {

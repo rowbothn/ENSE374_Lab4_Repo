@@ -11,6 +11,11 @@ public class CorporateCustomer extends Customer {
 	CorporateCustomer(String cust_name, String cust_address, String cust_contactName) {
 		name = cust_name;
 		address = cust_address;
-		contactName = cust_contactName;		
+		contactName = cust_contactName;	
+		calcDiscountRating();	
+	}
+
+	void calcDiscountRating() {
+		discountRating = .15;
 	}
 }

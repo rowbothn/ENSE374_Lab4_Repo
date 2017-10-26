@@ -1,23 +1,24 @@
+import java.util.*;
 /*
 *
-* Filename: PersonalCustomer.java 
 * Author: Noah Rowbotham (200364559)  
+* Filename: PersonalCustomer.java 
 *
 */
 
 public class PersonalCustomer extends Customer {
-	int creditCardNumber;
-
+	int creditCardNumber;		
+		
 	PersonalCustomer(String cust_name, String cust_address, double cust_creditRating, int cust_creditCardNumber) {
 		name = cust_name;
 		address = cust_address;
-		creditRating = cust_creditRating;
 		creditCardNumber = cust_creditCardNumber;	
+		creditRating = cust_creditRating;
+		calcDiscountRating();
 	}
-
+	
 	void calcDiscountRating() {
-		if(creditRating == 5000)
-			discountRating = .1;
-		else if(creditRating < )
+		discountRating = creditRating/200000;
+		System.out.println(discountRating);
 	}
 }
