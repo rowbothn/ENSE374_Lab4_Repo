@@ -8,7 +8,7 @@ import java.util.*;
 
 public class Order {
 	ArrayList<OrderLine> order = new ArrayList<OrderLine>();
-	Date dateRecieved;
+	Date dateRecieved = new Date();
 	double order_price = 0;
 	int orderID;
 	
