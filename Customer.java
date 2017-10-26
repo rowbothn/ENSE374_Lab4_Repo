@@ -8,22 +8,22 @@
 public class Customer {
 	String name;
 	String address;
-	float creditRating;
-	float discountRating;
-	
-	float getCreditRating() {
-		
+	double creditRating;
+	double discountRating;
+
+	double getCreditRating() {
+		return creditRating;
 	}
 	
 	String getName() {
-		
+		return name;
 	}
 	
 	String getAddress() {
-		
+		return address;
 	}
 	
-	float getDiscountRating() {
-		
+	double getDiscountRating() {
+		return discountRating;
 	}
 }

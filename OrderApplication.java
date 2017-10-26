@@ -12,8 +12,12 @@ public class OrderApplication {
 		
 	}
 	
-	boolean createOrder(Order) {
-		
+	boolean createOrder(Order purchase) {
+		boolean check_for_input = importCatalogue();
+		if(check_for_input == false)
+			System.out.println("System failure! Catalogue not available.");
+
+		System.out.println("Your total cost is: " + purchase.calculatePrice());
 	}
 	
 	boolean importCatalogue() {
@@ -25,7 +29,7 @@ public class OrderApplication {
 			System.out.print("File Import Failed");
 			return;
 		}
-		
+
 		Scanner read_products = new Scanner(file);
 		
 		while(read_products.hasNextLine()) {
@@ -33,4 +37,5 @@ public class OrderApplication {
 			catalogue.add(item);
 		}
 	}
+	
 }
