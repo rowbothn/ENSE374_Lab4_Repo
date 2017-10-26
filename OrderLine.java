@@ -10,7 +10,9 @@ public class OrderLine {
 	double price;
 	
 	OrderLine(Product product, int quantity, double price) {
-		
+			ArrayList catalogue = new ArrayList();
+	
+	
 	}
 	
 	Product getProduct() {
