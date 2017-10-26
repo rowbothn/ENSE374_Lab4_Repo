@@ -7,7 +7,8 @@
 
 public class Order {
 	Date dateRecieved;
-	double price;
+	int quantity;
+	double order_price = 0;
 	int orderID;
 	
 	Date getDateRecieved() {
@@ -15,6 +16,11 @@ public class Order {
 	}
 	
 	double calculatePrice() {
-		
+		for(int i = 0; i < 10; i++) {
+			OrderLine item = new OrderLine(catalogue[i]);
+			double item_price += item.getPrice();
+			quantity = item.getQuantity()
+			order_price += quantity * item_price;
+		}
 	}
 }

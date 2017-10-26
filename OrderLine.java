@@ -7,23 +7,23 @@
 
 public class OrderLine {
 	int quantity;
+	Product item = new Product();
 	double price;
 	
-	OrderLine(Product product, int quantity, double price) {
-			ArrayList catalogue = new ArrayList();
-	
-	
+	OrderLine(Product product) {
+		price = product.getPrice();
+		quantity = 2;
 	}
 	
 	Product getProduct() {
-		
+		return item;
 	}
 	
 	int getQuantity() {
-		
+		return quantity;
 	}
 	
 	double getPrice() {
-		
+		return price;
 	}
 }
