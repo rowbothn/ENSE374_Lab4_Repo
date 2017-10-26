@@ -16,6 +16,8 @@ public class Order {
 	}
 	
 	double calculatePrice() {
+		System.out.println("Calculating price...");
+
 		for(int i = 0; i < 10; i++) {
 			OrderLine item = new OrderLine(catalogue[i]);
 			double item_price += item.getPrice();
