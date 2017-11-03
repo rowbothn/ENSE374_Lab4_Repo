@@ -29,7 +29,6 @@ public class Order {
 			quantity = (order.get(i)).getQuantity();
 			order_price += quantity * (order.get(i)).getPrice();
 		}
-		System.out.println(discountRating);
 		double discount = order_price * discountRating;
 		return (order_price - discount);
 	}
