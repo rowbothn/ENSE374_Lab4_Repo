@@ -19,6 +19,5 @@ public class PersonalCustomer extends Customer {
 	
 	void calcDiscountRating() {
 		discountRating = creditRating/200000;
-		System.out.println(discountRating);
 	}
 }
